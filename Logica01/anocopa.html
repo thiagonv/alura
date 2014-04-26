@@ -1,0 +1,24 @@
+<meta charset="UTF-8">
+
+
+<script>	
+	var mostra = function(texto) {
+		document.write(texto);
+		pulaLinha();
+		pulaLinha();
+	};
+
+	var pulaLinha = function() {
+		document.write("<br>");
+	};
+
+	var anoInicial = parseInt(prompt("Ano inicial: "));
+	var anoLimite = parseInt(prompt("Ano limite: "));
+
+	while(anoInicial <= anoLimite) {
+		mostra(anoInicial + " tem copa!");
+		anoInicial = anoInicial + 4;
+	}
+
+	mostra("Todos os anos com copa até " + anoLimite);
+</script>

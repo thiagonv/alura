@@ -1,0 +1,24 @@
+<meta charset="UTF-8">
+
+
+<script>	
+	var mostra = function(texto) {
+		document.write(texto);
+		pulaLinha();
+		pulaLinha();
+	};
+
+	var pulaLinha = function() {
+		document.write("<br>");
+	};
+
+	var calculaIMC = function(altura,peso) {
+		var imc = Math.round(peso / (altura * altura));
+		mostra("IMC calculado é " + imc + ". Está " + (35 - imc) + " distante da obesidade severa");
+	};
+
+	var peso = 83;	
+	var altura = 1.83;
+	calculaIMC(altura, peso);
+</script>
+

@@ -1,0 +1,32 @@
+<canvas id="tela" width="600" height="400"> </canvas>
+
+<script>
+	var tela = document.getElementById("tela");
+	var c = tela.getContext("2d");
+
+	var circulo = function(x, y, raio, cor) {
+		c.strokeStyle = cor;
+		c.beginPath();
+		c.arc(x, y, raio, 0, 2*Math.PI);
+		c.stroke();
+	};
+	var limpaTela = function() {
+		c.clearRect(0, 0, 600, 400);
+	};
+	var randomColor = function() {
+		var randomColor = '#' + (Math.random() * 0xFFFFFF << 0).toString(16);
+		return randomColor
+	};
+	var desenha = function() {
+		//limpaTela();
+		cor = randomColor();
+		circulo(x, 100, x/2,cor);
+		x = x + 1;
+	};
+
+
+	x = 1;
+	setInterval(desenha, 30);
+	
+
+</script>

@@ -1,0 +1,24 @@
+<meta charset="UTF-8">
+
+
+<script>	
+	var mostra = function(texto) {
+		document.write(texto);
+		pulaLinha();
+		pulaLinha();
+	};
+
+	var pulaLinha = function() {
+		document.write("<br>");
+	};
+
+	var anoInicial = 1896;
+	var anoLimite = parseInt(prompt("Ano limite: "));
+
+	while(anoInicial <= anoLimite) {
+		mostra(anoInicial + " tem olimpiada!");
+		anoInicial = anoInicial + 4;
+	}
+
+	mostra("Todos os anos das olimpiadas até " + anoLimite);
+</script>

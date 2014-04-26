@@ -1,0 +1,30 @@
+<meta charset="UTF-8">
+
+
+<input type="text" id="caixaDoNumero" />
+<input type="submit" id="adivinhar" value="advinhe!">
+
+<script>
+	var segredos = [16, 34, 37, 42, 50, 58];
+
+	var botaoClicado = function() {
+		var achou = false;
+		for(var i = 0; i < segredos.length; i++) {
+			if(segredos[i] == caixaDoNumero.value) {
+				achou = true;
+				break;
+			}
+		}
+		if(achou == true) {
+			alert("Parabens! Voce acertou um dos numeros secretos");	
+		}
+		else {
+			alert("Infelizmente voce errou!");
+		}
+		
+	};
+
+	var botaoAdivinhar = document.getElementById("adivinhar");
+	botaoAdivinhar.onclick =  botaoClicado;
+
+</script>

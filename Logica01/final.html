@@ -1,0 +1,52 @@
+
+<meta charset="UTF-8">
+
+
+<input type="text" id="numero" />
+<input type="submit" value="Adicionar numero" id="adicionar" />
+<input type="submit" value="ganhei?" id="verificar" />
+
+<script>
+	inseridos = [];
+	sorteados = [];
+	for(var i = 0; i < 6; i++) {
+		sorteados.push(Math.round(Math.random() * 60)+1);
+	}
+
+	var adicionarNumero = function() {
+		var numero = document.getElementById("numero").value;
+
+		if (numero < 1 || numero > 60) {
+			alert("Digite numeros de 1 a 60!");
+			return;
+		} 
+		else if (inseridos.length >= 6) {
+			alert("Voce já inseriu 6 numeros! Veja se ganhou!");
+			return;
+		} 
+		else {
+			inseridos.push(numero);
+			console.log(inseridos);
+		}
+	};
+
+	var checaSeGanhou = function() {
+		var acertos = 0;
+		for(i = 0; i < 6; i++) {
+			if(inseridos[i] == sorteados[i]) {
+				acertos++;
+			}
+		}
+		if(acertos == 6) {
+			alert("Voce ganhou!!!");
+		} else {
+			alert("Nao foi dessa vez! Voce acertou " + acertos);
+		}
+	}
+
+	var botaoNumero = document.getElementById("adicionar");
+	botaoNumero.onclick = adicionarNumero;
+
+	var botaoVerificar = document.getElementById("verificar");
+	botaoVerificar.onclick = checaSeGanhou;
+</script>

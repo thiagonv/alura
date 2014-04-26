@@ -1,0 +1,22 @@
+<meta charset="UTF-8">
+
+<input type="text" id="numero" />
+<input type="submit" value="Compare meu segredo" id="adivinhar" />
+
+<script>	
+	/*for(var numero = 1; numero <= 5; numero++) {
+		if(numero == 3) continue;
+		document.write(numero);
+	} */
+
+	var botaoClicado = function() {
+		alert(caixaDoNumero.value);
+	};
+	
+	var caixaDoNumero = document.getElementById("numero");
+	var botaoAdivinhar = document.getElementById("adivinhar");
+	botaoAdivinhar.onclick = botaoClicado;
+
+	
+
+</script>
