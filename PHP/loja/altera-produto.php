@@ -6,20 +6,21 @@
 		$preco = $_POST["preco"];
 		$descricao = $_POST["descricao"];
 		$categoria_id = $_POST['categoria_id'];
+		$id = $_POST['id'];
 		if(array_key_exists('usado', $_POST)) {
 			$usado = "true";
 		} else {
 			$usado = "false";
 		}
 		
-		if(insereProduto($conexao, $nome, $preco, $descricao, $categoria_id, $usado)) { 
+		if(alteraProduto($conexao, $id, $nome, $preco, $descricao, $categoria_id, $usado)) { 
 	?>
-			<p class="alert-success">Produto <?= $nome; ?> com valor R$ <?= $preco ?> adicionado com sucesso!</p>
+			<p class="alert-success">Produto <?= $nome; ?> com valor R$ <?= $preco ?> alterado com sucesso!</p>
 		<?php 
 		} else { 
 			$msg = mysqli_error($conexao);
 		?>
-			<p class="alert-danger">Produto <?= $nome; ?> não foi adicionado: <?= $msg ?></p>	
+			<p class="alert-danger">Produto <?= $nome; ?> não foi alterado: <?= $msg ?></p>	
 		<?php
 		}
 		?>
