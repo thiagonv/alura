@@ -2,7 +2,12 @@
 include("cabecalho.php"); 
 include("conecta.php"); 
 include("banco-categoria.php"); 
+?>
 
+<div class="container">
+<div class="principal">
+
+<?php
 $categorias = listaCategorias($conexao);
 ?>
 

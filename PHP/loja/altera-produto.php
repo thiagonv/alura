@@ -2,6 +2,12 @@
 		include("conecta.php");
 		include("banco-produto.php");
 
+?>
+
+<div class="container">
+<div class="principal">
+
+<?php
 		$nome = $_POST["nome"];
 		$preco = $_POST["preco"];
 		$descricao = $_POST["descricao"];

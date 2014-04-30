@@ -3,7 +3,12 @@ include("cabecalho.php");
 include("conecta.php"); 
 include("banco-categoria.php"); 
 include("banco-produto.php");
+?>
 
+<div class="container">
+<div class="principal">
+
+<?php
 $id = $_GET['id'];
 $produto = buscaProduto($conexao, $id);
 $categorias = listaCategorias($conexao);

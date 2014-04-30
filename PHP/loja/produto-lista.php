@@ -3,6 +3,10 @@
 		include("banco-produto.php");
 
 ?>
+
+<div class="container">
+<div class="principal">
+<h1>Lista de Produtos</h1>
 	
 <?php 
 	if(array_key_exists("removido", $_GET) && $_GET['removido']=='true') {
@@ -17,7 +21,17 @@
 	$produtos = listaProdutos($conexao);
 ?>
 	
-	<table class="table table-striped table-bordered">
+	<table class="table table-bordered  table-hover table-striped">
+		<thead>
+			<tr>
+				<td>Produto</td>
+				<td>Valor</td>
+				<td>Descrição</td>
+				<td>Categoria</td>
+				<td colspan="2">O que deseja fazer?</td>
+			</tr>
+		</thead>	
+		<tbody>
 		<?php
 			foreach ($produtos as $produto):
 		?>
@@ -34,6 +48,7 @@
 						</form>	
 					</td>
 				</tr>
+		</tbody>	
 		<?php
 			endforeach
 		?>
