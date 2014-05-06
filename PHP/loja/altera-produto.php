@@ -1,7 +1,6 @@
-<?php include("cabecalho.php");
-		include("conecta.php");
-		include("banco-produto.php");
-
+<?php 
+require_once("cabecalho.php");
+require_once("banco-produto.php");
 ?>
 
 <div class="container">
@@ -30,4 +29,4 @@
 		<?php
 		}
 		?>
-<?php include("rodape.php"); ?>
+<?php require_once("rodape.php"); ?>

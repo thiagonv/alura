@@ -1,20 +1,27 @@
-<?php include("cabecalho.php"); ?>
+<?php require_once("cabecalho.php");
+require_once("logica-usuario.php");
+ ?>			
 
-<div class="intro-header">
-	
-	<div class="container">
-		
-		<div class="row">
-			<div class="col-lg-12">
-				<div class="intro-message">
-					<h1>Loja Virtual Alura Cursos Online</h1>
-					<h3>Visual Melhorado Utilizando BootStrap</h3>
-				</div>
-			</div>
-		</div>
-	</div>
-	
-</div>
+			<h1>Bem vindo!</h1>
 
-
-<?php include("rodape.php"); ?>
+			<?php if(usuarioEstaLogado()) {?>
+				<p class="text-success">Você está logado como <?= usuarioLogado() ?>. <a href="logout.php">Deslogar</a></p>
+			<?php } else {?>
+			<h2>Login</h2>
+			<form action="login.php" method="post">
+			<table class="table">
+				<tr>
+					<td>Email</td>
+					<td><input class="form-control" type="email" name="email"></td>
+				</tr>
+				<tr>
+					<td>Senha</td>
+					<td><input class="form-control" type="password" name="senha"></td>
+				</tr>
+				<tr>
+					<td><button class="btn btn-primary">Login</button></td>
+				</tr>
+			</table>
+			</form>
+			<?php } ?>
+<?php require_once("rodape.php"); ?>	

@@ -1,6 +1,7 @@
-<?php include("cabecalho.php"); 
-		include("conecta.php"); 
-		include("banco-produto.php");
+<?php 
+require_once("cabecalho.php"); 
+require_once("banco-produto.php");
+require_once("logica-usuario.php");
 
 ?>
 
@@ -9,10 +10,11 @@
 <h1>Lista de Produtos</h1>
 	
 <?php 
-	if(array_key_exists("removido", $_GET) && $_GET['removido']=='true') {
+	if(isset($_SESSION["success"])) {
 ?>
-	<p class="alert-success">Produto removido com sucesso.</p>
+	<p class="alert-success"><?=$_SESSION["success"]?></p>
 <?php
+	unset($_SESSION["success"]);
 	}
 ?>
 	
@@ -21,7 +23,7 @@
 	$produtos = listaProdutos($conexao);
 ?>
 	
-	<table class="table table-bordered  table-hover table-striped">
+	<table class="table table-bordered  table-hover table-striped table-condensed">
 		<thead>
 			<tr>
 				<td>Produto</td>
@@ -54,4 +56,4 @@
 		?>
 	</table>
 	
-<?php include("rodape.php"); ?>
+<?php require_once("rodape.php"); ?>

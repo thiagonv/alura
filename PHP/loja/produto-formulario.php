@@ -1,50 +1,24 @@
-<?php 
-include("cabecalho.php"); 
-include("conecta.php"); 
-include("banco-categoria.php"); 
-?>
+<?php require_once("cabecalho.php"); 
+require_once("banco-categoria.php");
+require_once("logica-usuario.php");
 
-<div class="container">
-<div class="principal">
+verificaUsuario();
 
-<?php
+$produto = array("nome" => "", "descricao" => "", "preco" => "", "categoria_id" => "1");
+$usado = "";
 $categorias = listaCategorias($conexao);
-?>
-
-	<h1>Formulário de cadastro</h1>
-
+?>			
+	<h1>Formulário de produto</h1>
 	<form action="adiciona-produto.php" method="post">
 		<table class="table">
+			
+			<?php require_once("produto-formulario-base.php"); ?>
+
 			<tr>
-				<td>Nome</td>
-				<td><input type="text" class="form-control" name="nome" /></td>
-			</tr>
-			<tr>
-				<td>Preço</td>
-				<td><input type="number" class="form-control" name="preco" /></td>
-			</tr>
-			<tr>
-				<td></td>
-				<td><input type="checkbox" name="usado" value="true">Usado</td>
-			</tr>
-			<tr>
-				<td>Descrição</td>
-				<td><textarea name="descricao" class="form-control"></textarea></td>
-			</tr>
-			<tr>
-				<td>Categoria</td>
 				<td>
-					<select name="categoria_id" id="">
-						<?php foreach ($categorias as $categoria): ?>	
-							<option value="<?=$categoria['id']?>"><?=$categoria['nome']?></option>
-						<?php endforeach ?>
-					</select>
+					<button class="btn btn-primary" type="submit">Cadastrar</button>
 				</td>
-			</tr>
-			<tr>
-				<td><input type="submit" class="btn btn-primary" value="Cadastrar" /></td>
 			</tr>
 		</table>
 	</form>
-
-<?php include("rodape.php"); ?>
+<?php require_once("rodape.php"); ?>	

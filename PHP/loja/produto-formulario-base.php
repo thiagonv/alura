@@ -1,27 +1,4 @@
-<?php 
-include("cabecalho.php"); 
-include("conecta.php"); 
-include("banco-categoria.php"); 
-include("banco-produto.php");
-?>
-
-<div class="container">
-<div class="principal">
-
-<?php
-$id = $_GET['id'];
-$produto = buscaProduto($conexao, $id);
-$categorias = listaCategorias($conexao);
-
-$usado = $produto['usado'] ? "checked='checked'" : "";
-?>
-
-	<h1>Alterando produto</h1>
-
-	<form action="altera-produto.php" method="post">
-		<input type="hidden" name="id" value="<?=$produto['id']?>" />
-		<table class="table">
-			<tr>
+<tr>
 				<td>Nome</td>
 				<td><input type="text" class="form-control" name="nome" value="<?=$produto['nome']?>" /></td>
 			</tr>
@@ -56,7 +33,3 @@ $usado = $produto['usado'] ? "checked='checked'" : "";
 			<tr>
 				<td><input type="submit" class="btn btn-primary" value="Alterar" /></td>
 			</tr>
-		</table>
-	</form>
-
-<?php include("rodape.php"); ?>
